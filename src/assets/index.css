@@ -12,11 +12,7 @@ body {
 /* Login and Register page styles */
 
 .login-register-page {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: transparent; /* fallback for old browsers */
   box-sizing: border-box;
   padding: 8% 0 0;
   width: 100vw;
@@ -26,12 +22,17 @@ body {
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #444753;
   max-width: 360px;
   margin: 0 auto 100px;
-  padding: 45px;
+	padding: 45px;
+	border-radius: 5px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form.workspace {
+	background: transparent;
+	box-shadow: none;
 }
 .form > form > div {
   margin-bottom: 15px;
@@ -49,7 +50,7 @@ body {
   font-size: 14px;
 }
 .form .error {
-  color: red;
+  color: #ff3b00;
   display: block;
   margin-top: 4px;
   margin-left: 8px;
@@ -58,7 +59,7 @@ body {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #4fa2ab;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -70,7 +71,7 @@ body {
   margin-top: 20px;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: #4fa2ab;
 }
 .form .message {
   margin: 15px 0 0;
@@ -78,13 +79,17 @@ body {
   font-size: 12px;
 }
 .form .message a {
-  color: #4CAF50;
+  color: #4fa2ab;
   text-decoration: none;
 }
 .container {
   position: relative;
   z-index: 1;
   margin: 0 auto;
+}
+.container.workspace {
+	width: 500px;
+	height: 550px;
 }
 .container:before, .container:after {
   content: "";
@@ -158,13 +163,26 @@ body {
 	left: -25px;
 }
 
-.people-list ul {
+.people-list ul, .workspace-list ul {
 	height: 700px;
 	padding: 0;
 }
+.workspace-list ul {
+	height: inherit;
+	min-height: 550px;
+}
 
-.people-list ul li {
+.people-list ul li, .workspace-list ul li {
 	padding: 5px 5px;
+}
+
+.workspace-list ul li span {
+	cursor: pointer;
+}
+
+.workspace-list ul li span h3 {
+	display: inline;
+	margin: 10px 20px;
 }
 
 .people-list ul li.active {

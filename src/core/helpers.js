@@ -12,3 +12,7 @@ export const getChatDateString = (date) => {
 
   return momentObj.format('LT') + ', ' + momentObj.fromNow()
 }
+
+export const getHostUrl = () => {
+  return `${window.location.protocol}://${window.location.host}`
+}

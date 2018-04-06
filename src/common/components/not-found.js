@@ -6,7 +6,7 @@ const NotFound = ({ token }) => {
   if (token) {
     return <h1>Page not found</h1>
   } else {
-    return <Redirect to="/login"/>
+    return <Redirect to="/chat/workspace"/>
   }
 }
 

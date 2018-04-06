@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthFormField = ({
+const FormField = ({
   input,
   label,
   type,
@@ -13,4 +13,4 @@ const AuthFormField = ({
   </div>
 )
 
-export default AuthFormField;
+export default FormField;

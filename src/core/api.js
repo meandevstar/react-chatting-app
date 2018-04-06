@@ -66,22 +66,28 @@ api.addResponseTransform(response => {
 
 
 export const registerUser = (data) =>
-  api.post(config.apiUrl + '/v1/users', data);
+  api.post('/v1/users', data);
 
 export const loginUser = (data) =>
-  api.post(config.apiUrl + '/v1/user/authenticate', data)
+  api.post('/v1/user/authenticate', data)
 
 export const getMessages = ({ roomId }) =>
-  api.get(config.apiUrl + `/v1/room/${roomId}/messages`)
+  api.get(`/v1/room/${roomId}/messages`)
 
 export const getRooms = () =>
-  api.get(config.apiUrl + '/v1/rooms')
+  api.get('/v1/rooms')
 
 export const getUsers = () =>
-  api.get(config.apiUrl + '/v1/users')
+  api.get('/v1/users')
 
 export const createRoom = (data) =>
-  api.post(config.apiUrl + '/v1/rooms', data)
+  api.post('/v1/rooms', data)
+
+export const createWorkspace = (data) =>
+  api.post('/v1/workspaces', data)
+
+export const getWorkspaces = (data) =>
+  api.get('/v1/workspaces')
 
 export const setTokenHeader = (token) =>
   api.setHeader('accessToken', token)

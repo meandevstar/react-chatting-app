@@ -1,4 +1,4 @@
-import { call, put, fork, takeLatest } from 'redux-saga/effects'
+import { call, put, fork, takeLatest, select } from 'redux-saga/effects'
 import { toastr } from 'react-redux-toastr'
 import { push } from 'react-router-redux'
 
@@ -35,7 +35,9 @@ function* registerUserAttempt({ data }) {
 
 function* loginUserAttempt({ data }) {
   try {
-    const response = yield call(loginUser, data)
+    const { chat: { activeWorkspaceId } } = yield select()
+    const payload = Object.assign({}, data, { workspace: activeWorkspaceId })
+    const response = yield call(loginUser, payload)
 
     if (response.ok) {
       yield call(handleSuccess, response.data)
@@ -49,6 +51,10 @@ function* loginUserAttempt({ data }) {
     yield put(apiFailed())
     toastr.error('Login Failed', err.response.data.message)
   }
+}
+
+function* logout() {
+  yield put(push('/workspace'))
 }
 
 

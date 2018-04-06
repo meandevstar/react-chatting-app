@@ -7,29 +7,53 @@ import 'font-awesome/css/font-awesome.min.css';
 import Message from '../components/message'
 
 
-const ChatHistory = ({ messages, me }) =>
+class ChatHistory extends React.Component {
 
-  <div className="chat-history">
-    <ul>
-      {
-        messages && messages.map((message, index) => 
-          <Message
-            key={index}
-            message={message}
-            user={me}
-          />)
-      }
-      
-      {/* <li>
-        <i className="fa fa-circle online"></i>
-        <i className="fa fa-circle online" style={{ color: '#AED2A6' }}></i>
-        <i className="fa fa-circle online" style={{ color: '#DAE9DA' }}></i>
-        <span className="status-text">Vincente is writing...</span>
-      </li> */}
-      
-    </ul>
-    
-  </div>
+  constructor (props) {
+    super(props)
+  }
+
+  scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  }
+  
+  componentDidMount() {
+    this.scrollToBottom();
+  }
+  
+  componentDidUpdate() {
+    this.scrollToBottom();
+  }
+
+  render() {
+    const { messages, me } = this.props
+
+    return (
+      <div className="chat-history">
+        <ul>
+          {
+            messages && messages.map((message, index) => 
+              <Message
+                key={index}
+                message={message}
+                user={me}
+              />)
+          }
+          
+          {/* <li>
+            <i className="fa fa-circle online"></i>
+            <i className="fa fa-circle online" style={{ color: '#AED2A6' }}></i>
+            <i className="fa fa-circle online" style={{ color: '#DAE9DA' }}></i>
+            <span className="status-text">Vincente is writing...</span>
+          </li> */}
+        </ul>
+        <div style={{ float:"left", clear: "both" }}
+          ref={(el) => { this.messagesEnd = el; }}>
+        </div>
+      </div>
+    )
+  }
+}
 
 
 const mapStateToProps = state => ({

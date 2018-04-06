@@ -31,3 +31,17 @@ export const sendMessageSuccess = () => ({ type: ActionTypes.SEND_MESSAGE_SUCCES
 export const sendMessageFailure = (data) => ({ type: ActionTypes.SEND_MESSAGE_FAILURE, data})
 
 export const receiveMessage = (data) => ({ type: ActionTypes.RECEIVE_MESSAGE, data })
+
+export const createWorkspaceAttempt = (data) => ({ type: ActionTypes.CREATE_WORKSPACE_ATTEMPT, data })
+
+export const createWorkspaceSuccess = (data) => ({ type: ActionTypes.CREATE_WORKSPACE_SUCCESS, data })
+
+export const createWorkspaceFailure = (data) => ({ type: ActionTypes.CREATE_WORKSPACE_FAILURE, data })
+
+export const getWorkspaceAttempt = () => ({ type: ActionTypes.GET_WORKSPACE_ATTEMPT })
+
+export const getWorkspaceSuccess = (data) => ({ type: ActionTypes.GET_WORKSPACE_SUCCESS, data })
+
+export const getWorkspaceFailure = (data) => ({ type: ActionTypes.GET_WORKSPACE_FAILURE, data })
+
+export const setWorkspace = (workspaceId) => ({ type: ActionTypes.SET_WORKSPACE, workspaceId })

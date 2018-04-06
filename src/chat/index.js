@@ -1,14 +1,16 @@
 import React from 'react'
-import { Switch } from 'react-router'
+import { Switch, Route } from 'react-router'
 
 import { ProtectedRoute } from '../common/components'
-import ChatMain from './containers/chat-main'
-import AddRoom from './containers/add-room'
+import ChatMainContainer from './containers/chat-main'
+import WorkspaceContainer from './containers/workspace-main'
+import AddRoomContainer from './containers/add-room'
 
 const ChatRoutes = ({ match }) => 
   <Switch>
-    <ProtectedRoute exact path={`${match.url}`} component={ChatMain}/>
-    <ProtectedRoute path={`${match.url}/add-room`} component={AddRoom} />
+    <ProtectedRoute exact path={`${match.url}`} component={ChatMainContainer}/>
+    <ProtectedRoute path={`${match.url}/add-room`} component={AddRoomContainer} />
+    <Route exact path={`${match.url}/workspace`} component={WorkspaceContainer}/>
   </Switch>
 
 export default ChatRoutes

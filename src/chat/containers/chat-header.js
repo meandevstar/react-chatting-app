@@ -13,7 +13,7 @@ const ChatHeader = ({ participantNames, messageLength }) =>
     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
     
     <div className="chat-about">
-      <div className="chat-with">Chat with {participantNames}</div>
+      <div className="chat-with">{participantNames}</div>
       <div className="chat-num-messages">
         {messageLength ?
           `Already ${messageLength} messages`:
@@ -36,10 +36,15 @@ const mapStateToProps = state => {
   const rooms = state.chat.rooms;
   const { user: { info } } = state
   const room = find(propEq('_id', state.chat.activeRoomId))(rooms) || {}
-  const participantNames = room.participants ?
+  let participantNames = room.participants ?
       reject(propEq('_id', info._id))(room.participants)
       .map(participant => participant.name)
       .join(', ') : null
+
+  if (room.participants && room.participants.length === 1) {
+    participantNames = `${room.participants[0].name} (you)`
+  }
+
 
   return {
     messageLength,

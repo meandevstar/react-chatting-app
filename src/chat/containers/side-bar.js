@@ -40,7 +40,7 @@ class SideBar extends React.Component {
             <PeopleListItem
               key={index}
               active={room._id === activeRoomId}
-              participant={getOtherPeople(room.participants, user)}
+              participants={getOtherPeople(room.participants, user)}
               onItemClick={() => this.getActiveChats(room._id)}
             />
           )
@@ -57,7 +57,11 @@ class SideBar extends React.Component {
 const getOtherPeople = (participants, me) => {
   const otherParticipants = reject(propEq('_id', me._id))(participants)
 
-  return otherParticipants.length ? otherParticipants[0] : {}
+  if (otherParticipants.length) {
+    return otherParticipants
+  } else {
+    return participants.length ? [participants[0]] : []
+  }
 }
 
 const mapStateToProps = state => ({

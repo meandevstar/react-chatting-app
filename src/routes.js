@@ -17,9 +17,9 @@ const appRoutes = ({ history }) => (
       <Switch>
         <Redirect exact from="/" to="/home"/>
         <ProtectedRoute path="/home" component={Home}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/register" component={Register}/>
         <Route path="/chat" component={ChatRoutes}/>
+        <Route path="/:workspaceId/register" component={Register}/>
+        <Route path="/:workspaceId" component={Login}/>
         <Route path="*" component={NotFound}/>
       </Switch>
       <ReduxToastr

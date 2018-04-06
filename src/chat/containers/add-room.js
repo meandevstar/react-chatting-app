@@ -72,7 +72,12 @@ class AddRoom extends React.Component {
           </ul>
         </div>
         <div>
-          <button type="button" onClick={() => this.createRoom()}>create</button>
+          <button
+            type="button"
+            // disabled={participants.length === 0}
+            onClick={() => this.createRoom()}>
+            create
+          </button>
         </div>
       </div>
     )

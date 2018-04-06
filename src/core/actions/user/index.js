@@ -14,4 +14,4 @@ export const registerUserAttempt = (data) => ({ type: ActionTypes.REGISTER_USER_
 
 export const loginUserAttempt = (data) => ({ type: ActionTypes.LOGIN_USER_ATTEMPT, data })
 
-export const logOut = () => ({ type: ActionTypes.LOG_OUT })
+export const logout = () => ({ type: ActionTypes.LOG_OUT })

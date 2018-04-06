@@ -9,7 +9,7 @@ const AppHeader = ({ logout }) => (
 )
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(UserActions.logOut())
+  logout: () => dispatch(UserActions.logout())
 })
 
 export default connect(

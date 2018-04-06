@@ -13,7 +13,7 @@ const ProtectedRoute = ({ component: Component, children, token, ...rest }) => {
         </Route>
       )
   } else {
-    return <Redirect to="/login"/>
+    return <Redirect to="/chat/workspace"/>
   }
 };
 
