@@ -5,7 +5,7 @@ import { push } from 'react-router-redux'
 import 'font-awesome/css/font-awesome.min.css';
 
 import { chat as ChatActions } from '../../core/actions'
-import PeopleListItem from '../components/people-list-item'
+import RoomListItem from '../components/room-list-item'
 import AddRoomButton from '../components/add-room-button'
 import ContactSearch from '../components/contact-search'
 
@@ -37,10 +37,11 @@ class SideBar extends React.Component {
         <ul className="list">
         {
           rooms && rooms.map((room, index) => 
-            <PeopleListItem
+            <RoomListItem
               key={index}
               active={room._id === activeRoomId}
               participants={getOtherPeople(room.participants, user)}
+              title={room.name}
               onItemClick={() => this.getActiveChats(room._id)}
             />
           )

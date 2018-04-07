@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { find, propEq, reject } from 'ramda'
 
 import { chat as ChatActions } from '../../core/actions'
-import PeopleListItem from '../components/people-list-item'
+import ContactListItem from '../components/contact-list-item'
 
 
 class AddRoom extends React.Component {
@@ -48,23 +48,31 @@ class AddRoom extends React.Component {
     createRoom(payload)
   }
 
+  onUpdateName(e) {
+    this.setState({
+      name: e.target.value
+    })
+  }
+  
+
   render() {
     const { users } = this.props
     const { participants, name } = this.state
 
     return (
-      <div className="container clearfix">
+      <div className="container add-room clearfix">
         <div className="contact-list">
           <h2>Add people to create a room </h2>
-          <input type="text" placeholder="Room name" value={name} />
+          <input type="text" placeholder="Room name" value={name} onChange={(e) => this.onUpdateName(e)} />
         </div>
         <div>
+          <h3>Workspace Users</h3>
           <ul className="list">
           {
             users.map((user, index) =>
-              <PeopleListItem
+              <ContactListItem
                 key={index}
-                participant={user}
+                user={user}
                 checked={participants.indexOf(user._id) !== -1}
                 onItemClick={() => this.addUser(user)}
               />)

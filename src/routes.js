@@ -15,7 +15,7 @@ const appRoutes = ({ history }) => (
   <ConnectedRouter history={history}>
     <div>
       <Switch>
-        <Redirect exact from="/" to="/home"/>
+        <Redirect exact from="/" to="/chat"/>
         <ProtectedRoute path="/home" component={Home}/>
         <Route path="/chat" component={ChatRoutes}/>
         <Route path="/:workspaceId/register" component={Register}/>

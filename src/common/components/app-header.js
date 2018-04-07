@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { user as UserActions } from '../../core/actions';
 
 const AppHeader = ({ logout }) => (
-  <div>
+  <div className="app-header">
     <button onClick={logout}>Log out</button>
   </div>
 )

@@ -127,15 +127,7 @@ function* getWorkspaceAttempt() {
   }
 }
 
-// function* sendMessageAttempt({ data }) {
-//   try {
-//     yield put(ChatActions.getChatAttempt(data.room))
-//     yield put(ChatActions.sendMessageSuccess())
-//   } catch (err) {
-//     yield put(ChatActions.sendMessageFailure(err.response.data))
-//     toastr.error('Creating Room Failed: ', err.response.data)
-//   }
-// }
+
 
 
 //======================= Socket Configuration ========================//
@@ -153,10 +145,10 @@ function connect() {
 function subscribe(socket) {
   return eventChannel(emit => {
     socket.on('users.login', ({ id, name }) => {
-      console.log(`${name} become online (${id})`)
+      toastr.info(`${name} become online (${id})`)
     });
     socket.on('users.logout', ({ id, name }) => {
-      console.log(`${name} went offline (${id})`)
+      toastr.info(`${name} went offline (${id})`)
     });
     socket.on('messages.new', (data) => {
       emit(ChatActions.receiveMessage(data))

@@ -14,5 +14,5 @@ export const getChatDateString = (date) => {
 }
 
 export const getHostUrl = () => {
-  return `${window.location.protocol}://${window.location.host}`
+  return `${window.location.protocol}//${window.location.host}`
 }

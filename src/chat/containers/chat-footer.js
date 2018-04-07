@@ -29,12 +29,14 @@ class ChatFooter extends React.Component {
       room: roomId,
       text: message
     }
+    this.setState({ message: '' })
 
     sendMessage(payload)
   }
 
   render() {
     const { message } = this.state
+    const { roomId } = this.props
 
     return (
       <div className="chat-message clearfix">
@@ -43,11 +45,16 @@ class ChatFooter extends React.Component {
                   placeholder ="Type your message"
                   rows="3"
                   value={message}
+                  disabled={!roomId}
                   onChange={e => this.onChangeMessage(e)}
         ></textarea> 
           <i className="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
           <i className="fa fa-file-image-o"></i>
-        <button onClick={() => this.send()}>Send</button>
+        <button
+          disabled={!roomId}
+          onClick={() => this.send()}>
+          Send
+        </button>
       </div>
     )
   }

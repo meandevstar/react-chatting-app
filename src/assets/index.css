@@ -6,7 +6,10 @@ body {
   padding: 0;
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale;
+	background: #C5DDEB;
+	font: 14px/20px "Lato", Arial, sans-serif;
+	color: white;
 }
 
 /* Login and Register page styles */
@@ -85,11 +88,33 @@ body {
 .container {
   position: relative;
   z-index: 1;
-  margin: 0 auto;
+  margin: 15px auto;
 }
 .container.workspace {
 	width: 500px;
 	height: 550px;
+	padding: 20px;
+	margin-top: 50px;
+}
+.container.add-room {
+	width: 550px;
+	padding:  20px;
+}
+.container button {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4fa2ab;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	-o-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+	margin-top: 20px;
 }
 .container:before, .container:after {
   content: "";
@@ -125,15 +150,9 @@ body {
 	box-sizing: border-box;
 }
 
-body {
-	background: #C5DDEB;
-	font: 14px/20px "Lato", Arial, sans-serif;
-	padding: 40px 0;
-	color: white;
-}
 
 .container {
-	margin: 0 auto;
+	margin: 15px auto;
 	width: 750px;
 	background: #444753;
 	border-radius: 5px;
@@ -148,7 +167,7 @@ body {
 	padding: 20px;
 }
 
-.people-list input {
+.people-list input, .contact-list input {
 	border-radius: 3px;
 	border: none;
 	padding: 14px;
@@ -163,8 +182,12 @@ body {
 	left: -25px;
 }
 
+.contact-list ul {
+	padding: 0 10px;
+}
+
 .people-list ul, .workspace-list ul {
-	height: 700px;
+	height: 680px;
 	padding: 0;
 }
 .workspace-list ul {
@@ -174,6 +197,20 @@ body {
 
 .people-list ul li, .workspace-list ul li {
 	padding: 5px 5px;
+	cursor: pointer;
+}
+
+.people-list ul li:hover, .workspace-list ul li:hover {
+	background: #3e404a;
+}
+
+.people-list .add-room {
+	padding: 0 20px;
+}
+
+.people-list .add-room:hover {
+	cursor: pointer;	
+	background: #656871;
 }
 
 .workspace-list ul li span {
@@ -251,7 +288,7 @@ body {
 	padding: 30px 30px 20px;
 	border-bottom: 2px solid white;
 	overflow-y: scroll;
-	height: 594px;
+	height: 511px;
 }
 
 .chat .chat-history ul {
@@ -334,6 +371,7 @@ body {
 	cursor: pointer;
 	font-weight: bold;
 	background: #F2F5F8;
+	margin: 0;
 }
 
 .chat .chat-message button:hover {
@@ -386,6 +424,35 @@ ul {
   margin-left: 15px;
 }
 
-.search i {
+.add-room-btn {
+	padding: 0 20px;
+	margin: 20px 0;
+}
+.add-room-btn:hover {
+	cursor: pointer;	
+	background: #656871;
+}
+.add-room i {
+	margin: 5px 0;
+}
+.app-header {
+	height: 50px;
+	margin-bottom: 20px;
+	background: #444752;
+	text-align: end;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.app-header button {
+	width: 90px;
+	height: 100%;
+	font-size: 14px;
+	background: transparent;
+	border: none;
+}
+.app-header button:hover {
+	background: #727686;
 	cursor: pointer;
+}
+.chat-message button {
+	width: 75px;
 }

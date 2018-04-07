@@ -46,13 +46,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  registerUser: (data) => {
-    dispatch(UserActions.registerUserAttempt({
-      email: data.email,
-      name: data.name,
-      password: data.password,
-    }))
-  }
+  registerUser: (data) => dispatch(UserActions.registerUserAttempt(data))
 })
 
 export default compose(

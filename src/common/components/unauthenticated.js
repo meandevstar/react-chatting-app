@@ -7,7 +7,7 @@ const unauthenticated = (WrappedComponent) => {
     ({ token, ...props }) =>
       !token
         ? <WrappedComponent {...props}/>
-        : <Redirect to="/home"/>
+        : <Redirect to="/chat"/>
 
   const mapStateToProps = ({ user }) => ({
     token: user.token
