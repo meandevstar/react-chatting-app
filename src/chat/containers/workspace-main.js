@@ -5,14 +5,15 @@ import 'react-tabs/style/react-tabs.css';
 
 import { chat as ChatActions } from '../../core/actions'
 
-import { AddWorkspace, WorkspaceList } from './index'
+import { AddWorkspace, WorkspaceList, FindWorkspace } from './index'
 
-const WorkspaceContainer = ({ createWorkspace }) =>
+const WorkspaceContainer = ({ createWorkspace, findWorkspace }) =>
   <div className="container workspace clearfix">
     <Tabs>
       <TabList>
         <Tab>Workspace List</Tab>
         <Tab>Create Workspace</Tab>
+        <Tab>Find Workspace</Tab>
       </TabList>
 
       <TabPanel>
@@ -21,6 +22,11 @@ const WorkspaceContainer = ({ createWorkspace }) =>
       <TabPanel>
         <div className="form workspace">
           <AddWorkspace onSubmit={createWorkspace}/>
+        </div>
+      </TabPanel>
+      <TabPanel>
+        <div className="form workspace">
+          <FindWorkspace onSubmit={findWorkspace}/>
         </div>
       </TabPanel>
     </Tabs>
@@ -34,7 +40,10 @@ const mapDispatchToProps = dispatch => ({
       email: data.email,
       name: data.name,
       password: data.password
-    }));
+    }))
+  },
+  findWorkspace: (data) => {
+    dispatch(ChatActions.findWorkspace(data.email))
   }
 })
 

@@ -45,3 +45,5 @@ export const getWorkspaceSuccess = (data) => ({ type: ActionTypes.GET_WORKSPACE_
 export const getWorkspaceFailure = (data) => ({ type: ActionTypes.GET_WORKSPACE_FAILURE, data })
 
 export const setWorkspace = (workspaceId) => ({ type: ActionTypes.SET_WORKSPACE, workspaceId })
+
+export const findWorkspace = (email) => ({ type: ActionTypes.FIND_WORKSPACE, email })

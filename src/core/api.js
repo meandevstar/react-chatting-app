@@ -89,5 +89,8 @@ export const createWorkspace = (data) =>
 export const getWorkspaces = (data) =>
   api.get('/v1/workspaces')
 
+export const findWorkspaces = (email) =>
+  api.get('/v1/user/workspaces', { email })
+
 export const setTokenHeader = (token) =>
   api.setHeader('accessToken', token)

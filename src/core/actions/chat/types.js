@@ -32,6 +32,8 @@ export default createTypes(
 
   SET_WORKSPACE
 
+  FIND_WORKSPACE
+
   RECEIVE_MESSAGE
   `
 )

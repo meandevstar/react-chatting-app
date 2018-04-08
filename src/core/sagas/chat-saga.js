@@ -13,7 +13,8 @@ import ChatActionTypes from '../actions/chat/types'
 
 import { getMessages, getRooms, getUsers,
          createRoom, setTokenHeader,
-         createWorkspace, getWorkspaces } from '../api'
+         createWorkspace, getWorkspaces,
+         findWorkspaces } from '../api'
 
 import ActionTypes from '../actions/chat/types';
 
@@ -127,6 +128,17 @@ function* getWorkspaceAttempt() {
   }
 }
 
+function* findWorkspaceAttempt({ email }) {
+  try {
+    const response = yield call(findWorkspaces, email)
+
+    toastr.info('We have sent an email to you')
+  } catch (err) {
+    yield put(ChatActions.getWorkspaceFailure(err.response.data))
+    toastr.error('Finding workspaces Failed: ', err.response.data)
+  }
+}
+
 
 
 
@@ -212,6 +224,7 @@ function* watcher() {
   yield takeEvery(ActionTypes.CREATE_ROOM_ATTEMPT, createRoomAttempt)
   yield takeEvery(ActionTypes.CREATE_WORKSPACE_ATTEMPT, createWorkspaceAttempt)
   yield takeEvery(ActionTypes.GET_WORKSPACE_ATTEMPT, getWorkspaceAttempt)
+  yield takeEvery(ActionTypes.FIND_WORKSPACE, findWorkspaceAttempt)
   // yield takeEvery(ActionTypes.SEND_MESSAGE_ATTEMPT, sendMessageAttempt)
 }
 

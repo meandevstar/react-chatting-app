@@ -4,6 +4,7 @@ import ChatHistory from './chat-history'
 import ChatFooter from './chat-footer'
 import AddRoom from './add-room'
 import AddWorkspace from './add-workspace'
+import FindWorkspace from './find-workspace'
 import WorkspaceList from './workspace-list'
 
 export {
@@ -13,5 +14,6 @@ export {
   ChatFooter,
   AddRoom,
   AddWorkspace,
+  FindWorkspace,
   WorkspaceList,
 }
