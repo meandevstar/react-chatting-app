@@ -1,16 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import { find, propEq, reject } from 'ramda'
+import Male from '../../assets/avatar-male.svg'
+import Female from '../../assets/avatar-female.svg'
+import Group from '../../assets/avatar-group.svg'
 
 import 'font-awesome/css/font-awesome.min.css';
 
 
 
-const ChatHeader = ({ participantNames, messageLength }) =>
+const ChatHeader = ({ participantNames, room, messageLength }) =>
   participantNames ? 
 
   (<div className="chat-header clearfix">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
+    <img src={room.participants.length <= 2 ? Male : Group} alt="avatar" />
     
     <div className="chat-about">
       <div className="chat-with">{participantNames}</div>

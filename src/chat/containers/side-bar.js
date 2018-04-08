@@ -36,7 +36,7 @@ class SideBar extends React.Component {
         <AddRoomButton goToAddRoomPage={goToAddRoomPage}/>
         <ul className="list">
         {
-          rooms && rooms.map((room, index) => 
+          rooms && rooms.map((room, index) =>
             <RoomListItem
               key={index}
               active={room._id === activeRoomId}

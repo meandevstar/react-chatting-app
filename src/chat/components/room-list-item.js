@@ -1,12 +1,15 @@
 import React from 'react'
 import cx from 'classnames'
+import Male from '../../assets/avatar-male.svg'
+import Female from '../../assets/avatar-female.svg'
+import Group from '../../assets/avatar-group.svg'
 
 const RoomListItem = ({ participants, checked, active, title, onItemClick }) => 
   <li className={cx('clearfix', {
         'active': active
       })}
       onClick={() => onItemClick ? onItemClick() : {}}>
-    <img src={'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg'} alt="avatar" />
+    <img src={participants && participants.length === 1 ? Male : Group} alt="avatar" />
     <div className="about">
       <div className="name">{title || getRoomName(participants)}</div>
       {participants && participants.length === 1 &&
