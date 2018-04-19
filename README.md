@@ -18,4 +18,4 @@ $ npm start
 
 Note: this app uses https://github.com/meandevstar/node-mongo-chatting-api for backend
 
-Server will live at http://localhost:3000
+Here is the [Demo](https://rechatting.herokuapp.com)
