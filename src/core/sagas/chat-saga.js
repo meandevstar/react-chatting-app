@@ -145,7 +145,7 @@ function* findWorkspaceAttempt({ email }) {
 //======================= Socket Configuration ========================//
 
 function connect() {
-  const socket = openSocket(config.socketUrl)
+  const socket = openSocket(config.apiUrl)
 
   return new Promise(resolve => {
     socket.on('connect', () => {
